@@ -1,4 +1,5 @@
 # Async flow
+[![CircleCI](https://circleci.com/gh/weekendesk/asyncflow/tree/master.svg?style=shield)](https://circleci.com/gh/weekendesk/asyncflow/tree/master)
 
 This library allow you to use flows, _or sometimes named waterfalls,_ on an easy way.
 
