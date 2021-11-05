@@ -1,4 +1,4 @@
-# Async flow &bull; [![CircleCI](https://circleci.com/gh/weekendesk/asyncflow/tree/master.svg?style=shield)](https://circleci.com/gh/weekendesk/asyncflow/tree/master)
+# Asyncflow &bull; [![CircleCI](https://circleci.com/gh/weekendesk/asyncflow/tree/master.svg?style=shield)](https://circleci.com/gh/weekendesk/asyncflow/tree/master)
 
 This library allow you to use flows, _or sometimes named waterfalls,_ on an easy way.
 
@@ -15,6 +15,13 @@ const result = asyncflow([
   square,
   asyncSquare,
 ])(2);
+
+// OR
+
+const result = asyncflow(
+  square,
+  asyncSquare,
+)(2);
 ```
 
 ## License
