@@ -1,6 +1,7 @@
-module.exports = (flow) => {
-  if (!Array.isArray(flow)) {
-    throw new Error('The flow must be an array');
+module.exports = (...args) => {
+  let flow = args;
+  if (flow.length === 1 && Array.isArray(flow[0])) {
+    flow = flow[0];
   }
 
   return async (value) => {

@@ -11,8 +11,11 @@ const addToArray = (entry) => (value) => new Promise((resolve) => {
 });
 
 describe('asyncflow', () => {
-  it('should throw an error if the flow is not an array', () => {
-    expect(() => asyncflow()).toThrow();
+  test('asyncflow works with an array of functions', async () => {
+    expect(await asyncflow([square, square])(2)).toEqual(16);
+  });
+  test('asyncflow also works with multiple functions as arguments', async () => {
+    expect(await asyncflow(square, square)(2)).toEqual(16);
   });
   it('should return the value a simple synchronous function', async () => {
     const flow = asyncflow([square]);
