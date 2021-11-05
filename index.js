@@ -1,7 +1,7 @@
 module.exports = (...args) => {
   let flow = args;
   if (flow.length === 1 && Array.isArray(flow[0])) {
-    flow = flow[0];
+    ([flow] = flow);
   }
 
   return async (value) => {
