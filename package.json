@@ -21,6 +21,9 @@
   "license": "MIT",
   "author": "shudrum",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "jest"
