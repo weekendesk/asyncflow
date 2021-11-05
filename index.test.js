@@ -10,30 +10,33 @@ const addToArray = (entry) => (value) => new Promise((resolve) => {
   setTimeout(() => { resolve([...value, entry]); }, 10);
 });
 
-describe('asyncflow', () => {
-  test('asyncflow works with an array of functions', async () => {
-    expect(await asyncflow([square, square])(2)).toEqual(16);
-  });
-  test('asyncflow also works with multiple functions as arguments', async () => {
-    expect(await asyncflow(square, square)(2)).toEqual(16);
-  });
-  it('should return the value a simple synchronous function', async () => {
-    const flow = asyncflow([square]);
-    expect(await flow(2)).toEqual(4);
-  });
-  it('should return work with mutiple step on the flow', async () => {
-    const flow = asyncflow([square, square]);
-    expect(await flow(2)).toEqual(16);
-  });
-  it('should work with a asynchronous functions', async () => {
-    const flow = asyncflow([slowSquare]);
-    expect(await flow(2)).toEqual(4);
-  });
-  it('should work with multiple asynchronous functions', async () => {
-    const flow = asyncflow([addToArray('step1'), addToArray('step2')]);
-    expect(await flow([])).toEqual([
-      'step1',
-      'step2',
-    ]);
-  });
+test('Asyncflow works with an array of functions', async () => {
+  expect(await asyncflow([square, square])(2)).toEqual(16);
+});
+test('Asyncflow also works with multiple functions as arguments', async () => {
+  expect(await asyncflow(square, square)(2)).toEqual(16);
+});
+test('A single function can be used', async () => {
+  expect(await asyncflow([square])(2)).toEqual(4);
+});
+test('A single asynchronous function can be used', async () => {
+  expect(await asyncflow([slowSquare])(2)).toEqual(4);
+});
+test('Synchronous and asynchronous functions can be used', async () => {
+  expect(await asyncflow([slowSquare, square])(2)).toEqual(16);
+});
+test('The functions are executed on the right order', async () => {
+  expect(await asyncflow([
+    addToArray('step1'),
+    addToArray('step2'),
+    addToArray('step3'),
+    addToArray('step4'),
+    addToArray('step5'),
+  ])([])).toEqual([
+    'step1',
+    'step2',
+    'step3',
+    'step4',
+    'step5',
+  ]);
 });
