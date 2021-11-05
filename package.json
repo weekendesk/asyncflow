@@ -1,43 +1,49 @@
 {
   "name": "@weekendesk/asyncflow",
-  "author": "shudrum",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "test": "jest",
-    "lint": "eslint ."
+  "description": "This library allow you to use flows, or sometimes named waterfalls, on an easy way.",
+  "keywords": [
+    "async",
+    "await",
+    "flow",
+    "waterfall",
+    "function",
+    "chain"
+  ],
+  "homepage": "https://github.com/weekendesk/asyncflow#readme",
+  "bugs": {
+    "url": "https://github.com/weekendesk/asyncflow/issues"
   },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1",
-    "jest": "^25.1.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weekendesk/asyncflow.git"
+  },
+  "license": "MIT",
+  "author": "shudrum",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest"
   },
   "eslintConfig": {
     "env": {
       "browser": true,
       "commonjs": true,
-      "es6": true,
-      "jest": true
+      "es2021": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
     },
     "extends": [
       "airbnb-base"
     ],
-    "parserOptions": {
-      "ecmaVersion": 2018
-    }
+    "rules": {}
   },
-  "description": "[![CircleCI](https://circleci.com/gh/weekendesk/asyncflow/tree/master.svg?style=shield)](https://circleci.com/gh/weekendesk/asyncflow/tree/master) [![dependencies Status](https://david-dm.org/weekendesk/asyncflow/status.svg)](https://david-dm.org/weekendesk/asyncflow)",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/weekendesk/asyncflow.git"
-  },
-  "keywords": [
-    "flow"
-  ],
-  "bugs": {
-    "url": "https://github.com/weekendesk/asyncflow/issues"
-  },
-  "homepage": "https://github.com/weekendesk/asyncflow#readme"
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.3.1"
+  }
 }
